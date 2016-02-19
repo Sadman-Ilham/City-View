@@ -1,5 +1,5 @@
 <h4>City View</h4>
-
+<hr>
 View the City in 3D Mode
 
 <h5>Output</h5>
