@@ -15,6 +15,10 @@ double rectAngle;
 
 bool canDrawGrid;
 
+/****************************
+	Author : Sadman Ilham
+****************************/
+
 void drawBuilding(int x1, int y1, int x2,int y2, int z){
     //back side
     int minZ = 0;
@@ -211,8 +215,6 @@ void display(){
 	//3. Which direction is the camera's UP direction?
 
 	//instead of CONSTANT information, we will define a circular path.
-//	gluLookAt(-30,-30,50,	0,0,0,	0,0,1);
-
 	gluLookAt(200*cos(cameraAngle), 200*sin(cameraAngle), 150,		0,0,0,		0,0,1);
 	//NOTE: the camera still CONSTANTLY looks at the center
 	// cameraAngle is in RADIAN, since you are using inside COS and SIN
@@ -225,19 +227,6 @@ void display(){
 	/****************************
 	/ Add your objects from here
 	****************************/
-
-	/****************************
-	/ Author : Sadman Ilham
-	****************************/
-
-    //the main land
-	/*glColor3f(0,0,1);
-	glBegin(GL_QUADS);{
-	    glVertex3f(-100, -100, 0);
-	    glVertex3f(100, -100, 0);
-	    glVertex3f(100, 100, 0);
-	    glVertex3f(-100, 100, 0);
-	}glEnd();*/
 
 	//border
 	glColor3f(1,1,1);
@@ -277,7 +266,7 @@ void display(){
 	if(pos1>180) pos1 = 0;
 	car1(pos1);
 
-    	pos2 += .05;
+    pos2 += .05;
 	if(pos2>180) pos2 = 0;
 	car2(pos2);
 
@@ -317,86 +306,13 @@ void display(){
     drawBuilding(70, 90, 70, 70, 90);
     drawBuilding(70, 65, 70, 40, 30);
 
-
-
-	/****************************
-	/ Author : Sadman Ilham
-	****************************/
-
-	//add objects
-	//rotate this rectangle around the Z axis
-
-	/*glPushMatrix();{	//STORE the state
-		glRotatef(rectAngle,	0,0,1);	// in DEGREE
-		//a simple rectangles
-		glColor3f(0.3, 0.4, 0.8);
-		glBegin(GL_QUADS);{
-			glVertex3f(0,0,30);
-			glVertex3f(10,0,30);
-			glVertex3f(10,20,30);
-			glVertex3f(0,20,30);
-		}glEnd();
-
-		///lets draw another one in the XY plane --- i.e. Z = 0
-		glColor3f(0.15, 0.2, 0.4);
-		glBegin(GL_QUADS);{
-			glVertex3f(0,0,0);
-			glVertex3f(10,0,0);
-			glVertex3f(10,20,0);
-			glVertex3f(0,20,0);
-		}glEnd();
-	}glPopMatrix();*/		//the effect of rotation is not there now.
-
-
-
-	//some gridlines along the field
-
-	/*int i;
-
-	//WILL draw grid IF the "canDrawGrid" is true:
-
-	if(canDrawGrid == true){
-		glColor3f(0.3, 0.3, 0.3);	//grey
-		glBegin(GL_LINES);{
-			for(i=-10;i<=10;i++){
-
-				if(i==0)
-					continue;	//SKIP the MAIN axes
-
-				//lines parallel to Y-axis
-				glVertex3f(i*10, -100, 0);
-				glVertex3f(i*10,  100, 0);
-
-				//lines parallel to X-axis
-				glVertex3f(-100, i*10, 0);
-				glVertex3f( 100, i*10, 0);
-			}
-		}glEnd();
-	}*/
-
-	// draw the two AXES
-	/*glColor3f(1, 1, 1);	//100% white
-	glBegin(GL_LINES);{
-		//Y axis
-		glVertex3f(0, -150, 0);	// intentionally extended to -150 to 150, no big deal
-		glVertex3f(0,  150, 0);
-
-		//X axis
-		glVertex3f(-150, 0, 0);
-		glVertex3f( 150, 0, 0);
-	}glEnd();*/
-
-
 	//ADD this line in the end --- if you use double buffer (i.e. GL_DOUBLE)
 	glutSwapBuffers();
 }
 
 void animate(){
-	//codes for any changes in Camera
-
-	cameraAngle += cameraAngleDelta;	// camera will rotate at 0.002 radians per frame.	// keep the camera steady NOW!!
-
-	//codes for any changes in Models
+	// camera will rotate at 0.002 radians per frame.	// keep the camera steady NOW!!
+	cameraAngle += cameraAngleDelta;
 
 	rectAngle += 1;
 
@@ -406,19 +322,15 @@ void animate(){
 
 void keyboardListener(unsigned char key, int x,int y){
 	switch(key){
-
 		case '1':
 			cameraAngleDelta += .0002;
 			break;
-
-        	case '2':
+        case '2':
 			cameraAngleDelta -= .0002;
 			break;
-
 		case '3':
 			cameraAngleDelta = 0;
 			break;
-
 		default:
 			break;
 	}
