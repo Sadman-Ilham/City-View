@@ -1,14 +1,25 @@
-<h4>City View</h4>
+# City View
 View the City in 3D Mode
-<hr>
 
-<h5>Output</h5>
-<div align="center">
-<img alt="city_view_1" width="600" src="https://github.com/Sadman-Ilham/City-View/blob/master/img/view_1.png">
+#### Features
 
-<img alt="city_view_2" width="600" src="https://github.com/Sadman-Ilham/City-View/blob/master/img/view_2.png">
+- Press 1 to rotate the view from right to left
+- Keep Pressing 1 to increase the speed of rotation
+- Press 2 to rotate the view from left to right
+- Keep Pressing 2 to increase the speed of rotation
+- Press 3 to stop the rotation
 
-<img alt="city_view_3" width="600" src="https://github.com/Sadman-Ilham/City-View/blob/master/img/view_3.png">
-</div>
+#### Run
+###### Ubuntu
+- Make sure the GL/glut.h file is installed in your system. 
+  If not then install it from <strong>freeglut3-dev</strong> package by the following command line -
+  - sudo apt-get install freeglut3-dev
+- g++ CityView.cpp -o out -lGL -lGLU -lglut (This command line will produce an executable file called 'out')
+- ./out (This will produce the output)
 
-<p><i>Compile Process for Ubuntu and Windows are Coming ... ... ...</i></p>
+*`Compile process for Windows is Comming soon ... ... ...`*
+
+#### Output
+![city_view_1](https://github.com/Sadman-Ilham/City-View/blob/master/img/view_1.png)
+![city_view_2](https://github.com/Sadman-Ilham/City-View/blob/master/img/view_2.png)
+![city_view_3](https://github.com/Sadman-Ilham/City-View/blob/master/img/view_3.png)
